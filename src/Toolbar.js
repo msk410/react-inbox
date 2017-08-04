@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 
 export default class Toolbar extends Component {
+    onSelectAllClick() {
+        console.log("wtf")
+        this.props.onSelectAllClick()
+    }
     render() {
         return (
         <div className="row toolbar">
@@ -10,8 +14,8 @@ export default class Toolbar extends Component {
                 unread messages
                 </p>
 
-                <button className="btn btn-default">
-                <i className="fa fa-check-square-o"></i>
+                <button className="btn btn-default" onClick = {() => this.onSelectAllClick()}>
+                <i className="fa fa-check-square-o" ></i>
                 </button>
 
                 <button className="btn btn-default">

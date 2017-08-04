@@ -10,7 +10,12 @@ export default class MessageList extends Component {
       return (
           <ul>
             {this.props.messages.map((myMessage, i) => {
-                return <Message message = {myMessage} key = {i} onCheckBoxClick = {this.props.onCheckBoxClick}/>
+                return <Message 
+                            message={myMessage} 
+                            key={i} 
+                            onCheckBoxClick={this.props.onCheckBoxClick}
+                            onStarClick={this.props.onStarClick}
+                         />
             })}
           </ul>
       )

@@ -29,5 +29,7 @@ describe('MessageList', () => {
     expect(actual).toHaveLength(2);
   });
 
-  it('should have message read style if message is read')
+  it('should have message read style if message is read'){
+    
+  }
 })
