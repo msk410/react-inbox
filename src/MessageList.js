@@ -15,6 +15,7 @@ export default class MessageList extends Component {
                             key={i} 
                             onCheckBoxClick={this.props.onCheckBoxClick}
                             onStarClick={this.props.onStarClick}
+                            onMarkAsReadClick = {this.props.onMarkAsReadClick}
                          />
             })}
           </ul>

@@ -7,7 +7,6 @@ export default class Message extends Component {
         this.props.onCheckBoxClick(this.props.message.id)
     }
     checkRead() {
-        console.log(this.props.message.read)
         return this.props.message.read ? " read" : " unread"
     }
     
@@ -24,10 +23,14 @@ export default class Message extends Component {
     onStarClick() {
         this.props.onStarClick(this.props.message.id)
     }
+    test() {
+        console.log("sadfasdf")
+        
+    }
      
 render() {
         return (
-                <div className={"row message" + this.checkRead() + this.checkSelected()}>
+                <div className={"row message" + this.checkRead() + this.checkSelected()} onClick = {() =>this.test()}>
                 <div className="col-xs-1">
                     <div className="row">
                     <div className="col-xs-2">
