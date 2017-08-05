@@ -102,16 +102,38 @@ class App extends Component {
         })
       })
     }
+    getUnreadMessages() {
+      
+      return this.state.messageList.reduce((unread, elem) => {
+        return unread + !elem.read
+      }, 0)
+    }
+    getSelectAllButtonState() {
+      let state = this.state.messageList.reduce((numSelected, elem) => {
+        if(elem.hasOwnProperty("selected")) {
+          return numSelected + elem.selected
+         } else {
+           return numSelected + false
+         }
+      }, 0)
+      if(state  === 0) 
+        return 0
+      if(state < this.state.messageList.length)
+        return 1
+      return 2
+    }
 
   render() {
     return (
-      <div className = "App">
+      <div className = "App"> {this.getSelectAllButtonState()}
         <Toolbar onSelectAllClick = {this.onSelectAllClick.bind(this)}
           onMarkAsReadClick = {this.onMarkAsReadClick.bind(this)}
           onMarkAsUnreadClick = {this.onMarkAsUnreadClick.bind(this)}
           onDeleteClick = {this.onDeleteClick.bind(this)}
           onAddLabel= {this.onAddLabel.bind(this)}
           onRemoveLabel = {this.onRemoveLabel.bind(this)}
+          getUnreadMessages = {this.getUnreadMessages.bind(this)}
+          getSelectAllButtonState = {this.getSelectAllButtonState.bind(this)}
           fuck = "you"
 
         />

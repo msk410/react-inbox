@@ -25,18 +25,32 @@ export default class Toolbar extends Component {
     onRemoveLabel(e) {
         this.props.onRemoveLabel(e.target.value)
     }
+    getUnreadMessages() {
+        return this.props.test
+    }
+    getSelectAllButtonState() {
+        if(this.props.getSelectAllButtonState() === 0) {
+            return "fa-square-o"
+        }
+        if(this.props.getSelectAllButtonState() === 1) {
+            return "fa-check-square-o "
+        }
+        else {
+            return "fa-check-square"
+        }
+    }
 
     render() {
         return (
         <div className="row toolbar">
             <div className="col-md-12">
                 <p className="pull-right">
-                <span className="badge badge">2</span>
+                <span className="badge badge">{this.props.getUnreadMessages()}</span>
                 unread messages
                 </p>
 
                 <button className="btn btn-default" onClick = {() => this.onSelectAllClick()}>
-                <i className="fa fa-check-square-o" ></i>
+                <i className={"fa " + this.getSelectAllButtonState()}></i>
                 </button>
 
                 <button className="btn btn-default" onClick = {() => this.onMarkAsReadClick()}>
